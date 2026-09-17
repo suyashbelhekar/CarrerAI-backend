@@ -266,6 +266,7 @@ def rewrite_resume_section(content: str, section_type: str, mode: str, target_jd
     }
 
     instruction = mode_instructions.get(mode, mode_instructions["improve"])
+    escaped_content = content.replace('"', '\\"')
 
     prompt = f"""
 You are an expert Resume Editor and Executive Career Coach.
@@ -285,7 +286,7 @@ CRITICAL ANTI-HALLUCINATION RULES:
 
 Respond with valid JSON:
 {{
-  "original_text": "{content.replace('"', '\\"')}",
+  "original_text": "{escaped_content}",
   "rewritten_text": "The improved version of the text",
   "mode": "{mode}",
   "section_type": "{section_type}",
