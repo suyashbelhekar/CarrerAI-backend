@@ -1042,7 +1042,11 @@ async def download_report(
 
 
 if __name__ == "__main__":
-    port = int(os.getenv("PORT", 8000))
+    raw_port = os.getenv("PORT", "10000")
+    try:
+        port = int(raw_port)
+    except ValueError:
+        port = 10000
     host = os.getenv("HOST", "0.0.0.0")
     print(f"Starting CareerAI server on http://{host}:{port}")
-    uvicorn.run("main:app", host=host, port=port, reload=True)
+    uvicorn.run("main:app", host=host, port=port)
