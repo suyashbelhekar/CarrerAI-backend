@@ -1,0 +1,27 @@
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environment Variables
+.env
+.env.*
+!.env.example
+
+# SQLite Database & Storage
+*.db
+*.sqlite3
+career_ai.db
+
+# Virtual Environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
